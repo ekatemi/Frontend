@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  <HelloWorld />
+  <v-app>
+    <MainPage/>
+  </v-app>
 </template>

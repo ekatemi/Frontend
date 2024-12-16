@@ -5,12 +5,12 @@
 const drawer = ref(false);
 
 const tags = ref([
-  'All', 'Photography', 'Meet', 'Excursion'
+  'All', 'Photography', 'Meet', 'Excursion','All', 'Photography', 'Meet', 'Excursion'
 ]);
+
 </script>
 
-<template>
-  <v-app>
+<template >
 
     <!-- Navbar (AppBar) -->
     <v-app-bar class="custom-app-bar" style="background-color: #006CE4; padding-top: 20px;">
@@ -33,19 +33,29 @@ const tags = ref([
         <v-list-item link title="List Item 3"></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <!-- Main -->
-    <v-main style="background-color: white">
-       <!-- Tags Area -->
-      <v-container style="padding-top: 40px; padding-bottom: 40px;">
-        <v-row class="tags-area" justify="left">
-          <v-col v-for="(tag, index) in tags" :key="index" cols="auto">
-            <v-chip class="ma-2" color="primary" text-color="white">
-              {{ tag }}
-            </v-chip>
-          </v-col>
-        </v-row>
+    
+    <!-- Main (contains all other elements)-->
+    <v-main class="bg-white ma-4">
+      
+      <!-- Tags Area -->
+      <v-container>
+        <v-sheet class="py-4 px-1">
+          <v-chip-group
+            selected-class="text-deep-purple-accent-4"
+            mandatory
+          >
+            <v-chip
+              prepend-icon="mdi-account-circle"
+              v-for="tag in tags"
+              :key="tag"
+              :text="tag"
+              variant="outlined"
+            ></v-chip>
+          </v-chip-group>
+        </v-sheet>
       </v-container>
 
+      <main-card>fff</main-card>
       <!-- Carousel-->
       <v-container>
         <v-carousel>
@@ -71,16 +81,14 @@ const tags = ref([
         <h1 style="color: #006CE4;">Discounts. Connections. Freedom!</h1>
         <p class="text-secondary">Travel and meet, save and enjoy, rent, communicate, discover the world!</p>
       </v-container>
-    
-    
-    
     </v-main>
     
-
-
-    
-    
-  </v-app>
+    <!-- Footer -->
+    <v-footer height="50" app>
+        <v-container class="d-flex align-center justify-center">
+            <p>Copyright {{ (new Date()).getFullYear() }} Azamaza.com All rights reserved.</p>
+        </v-container>
+    </v-footer>
 </template>
 
 
@@ -94,3 +102,4 @@ Carousel
 Form
     Form Inputs
     Button -->
+
